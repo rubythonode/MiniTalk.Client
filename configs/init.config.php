@@ -27,4 +27,6 @@ try {
 function __autoload($class) {
 	if (file_exists(__MINITALK_PATH__.'/classes/'.$class.'.class.php') == true) REQUIRE_ONCE __MINITALK_PATH__.'/classes/'.$class.'.class.php';
 }
+
+session_start();
 ?>
