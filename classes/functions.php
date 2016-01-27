@@ -4,7 +4,7 @@
  *
  * @file functions.class.php
  * @author Arzz
- * @version 1.1.2
+ * @version 1.1.4
  * @license MIT License
  */
 function Request($var,$type='request') {
@@ -470,8 +470,10 @@ function CheckDependency($dependency,$version) {
 	} elseif ($dependency == 'curl') {
 		$check->installed = function_exists('curl_init');
 		$check->installedVersion = null;
+	} elseif ($dependency == 'mcrypt_encrypt') {
+		$check->installed = function_exists('mcrypt_encrypt');
+		$check->installedVersion = null;
 	} else {
-		
 		$check->installed = false;
 		$check->installedVersion = null;
 	}
@@ -538,5 +540,23 @@ function CreateDatabase($dbConnect,$schema) {
 	}
 	
 	return true;
+}
+
+/**
+ * getallheaders function is apache only
+ *
+ * @see http://php.net/getallheaders
+ * @return $headers
+ */
+if (!function_exists('getallheaders')) {
+	function getallheaders() { 
+		$headers = array(); 
+		foreach ($_SERVER as $name=>$value) {
+			if (substr($name,0,5) == 'HTTP_') {
+				$headers[str_replace(' ', '-',ucwords(strtolower(str_replace('_',' ',substr($name,5)))))] = $value;
+			}
+		}
+		return $headers;
+	}
 }
 ?>
