@@ -1,0 +1,33 @@
+@import url("NanumGothic.css");
+@import url("NanumBarunGothic.css");
+@import url("OpenSans.css");
+
+@font-face {
+	font-family:"defaultFont";
+	font-style:normal;
+	font-weight:300;
+	src:url("../fonts/OpenSans-Light.woff") format("woff"), url("../fonts/OpenSans-Light.ttf") format("truetype");
+}
+
+@font-face {
+	font-family:"defaultFont";
+	font-style:normal;
+	font-weight:400;
+	src:url("../fonts/OpenSans-Regular.woff") format("woff"), url("../fonts/OpenSans-Regular.ttf") format("truetype");
+}
+
+@font-face {
+	font-family:"defaultFont";
+	font-weight:700;
+	font-style:normal;
+	src:url("../fonts/OpenSans-Bold.woff") format("woff"), url("../fonts/OpenSans-Bold.ttf") format("truetype");
+}
+
+@font-face {
+	font-family:"defaultFont";
+	font-weight:800;
+	font-style:normal;
+	src:url("../fonts/OpenSans-ExtraBold.woff") format("woff"), url("../fonts/OpenSans-ExtraBold.ttf") format("truetype");
+}
+
+body {font-family:defaultFont, NanumBarunGothic, sans-serif;}
